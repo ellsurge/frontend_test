@@ -9,3 +9,4 @@ export { default as history } from "./Vector.svg";
 export { default as wallet } from "./wallet.svg";
 export { default as chat } from "./History.svg";
 export { default as proxima } from "./proxima.svg";
+export { default as camera } from "./camera.svg";

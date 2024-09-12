@@ -1,19 +1,13 @@
 import {
   Form,
-  Radio,
   Select,
-  TreeSelect,
-  Cascader,
   DatePicker,
-  InputNumber,
-  Switch,
   Button,
-  Slider,
-  ColorPicker,
   Input,
   message,
 } from "antd";
-const { RangePicker } = DatePicker;
+import { useState } from "react";
+import UploadInput from "~/views/input/UploadInput";
 const { TextArea } = Input;
 
 type Props = {
@@ -28,42 +22,50 @@ export const PageWithFormFormModule = (props: Props) => {
   };
 
   return (
-    <Form
-      form={form}
-      labelCol={{ span: 6 }}
-      wrapperCol={{ span: 14 }}
-      onFieldsChange={(changedFields) => {
-        props.setFormData((prevData: any) =>
-          changedFields.reduce(
-            (acc, { name, value }) => ({ ...acc, [name[0]]: value }),
-            prevData,
-          ),
-        );
-      }}
-      className=""
-      layout="horizontal"
-      style={{ maxWidth: 600, padding: 10, }}
-      onFinish={onFinish}
-    >
-      <Form.Item label="Category" name="Select">
-        <Select>
-          <Select.Option value="demo">Demo</Select.Option>
-        </Select>
-      </Form.Item>
-      <Form.Item label="Vote Input" name="Input">
-        <Input />
-      </Form.Item>
-      <Form.Item label="Description" name="TextArea">
-        <TextArea rows={6} />
-      </Form.Item>
-      <Form.Item label="Start" name="DatePicker">
-        <DatePicker style={{ height: 40, width: '100%', }} />
-      </Form.Item>
-      <div className="flex w-full items-center justify-center">
-        <Button type="primary" htmlType="submit" className="w-full" style={{ height: 38, background: '#2F54EB', }}>
-          Create Vote
-        </Button>
+    <div>
+      <div className="w-full bg-[#F0F5FF] p-4 text-[16px]">
+        <span className="font-[650] text-[#2F54EB]">10 FAO </span>will be deducted when voting is generated <br />(Amount : 9 FAO)
       </div>
-    </Form>
+      <Form
+        form={form}
+        labelCol={{ span: 6 }}
+        wrapperCol={{ span: 14 }}
+        onFieldsChange={(changedFields) => {
+          props.setFormData((prevData: any) =>
+            changedFields.reduce(
+              (acc, { name, value }) => ({ ...acc, [name[0]]: value }),
+              prevData,
+            ),
+          );
+        }}
+        className=""
+        layout="horizontal"
+        style={{ maxWidth: 600, padding: 10, background: 'white', }}
+        onFinish={onFinish}
+      >
+        <Form.Item label="Category" name="Select">
+          <Select style={{ height: 40, }} placeholder='Birthday AD'>
+            <Select.Option value="demo">Demo</Select.Option>
+          </Select>
+        </Form.Item>
+        <Form.Item label="Vote Input" name="Input">
+          <Input style={{ height: 40, }} placeholder="Title" />
+        </Form.Item>
+        <Form.Item label="Image" name="Upload" style={{ width: "100%" }}>
+          <UploadInput />
+        </Form.Item>
+        <Form.Item label="Description" name="TextArea">
+          <TextArea rows={6} placeholder="Please write down a description of the event" />
+        </Form.Item>
+        <Form.Item label="Start" name="DatePicker">
+          <DatePicker style={{ height: 40, width: '100%', }} placeholder="2024-09-06" />
+        </Form.Item>
+        <div className="flex w-full items-center justify-center">
+          <Button type="primary" htmlType="submit" className="w-full" style={{ height: 38, background: '#2F54EB', }}>
+            Create Vote
+          </Button>
+        </div>
+      </Form>
+    </div>
   );
 };
