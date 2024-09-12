@@ -20,11 +20,7 @@ export const HomeContainer = () => {
     },
     homeContentModuleProps: {
       sampleLinks: [
-        "/sample/empty",
-        "/sample/pageWithModal",
-        "/sample/pageWithDrawer",
-        "/sample/pageWithToast",
-        "/sample/pageWithForm",
+
       ],
     },
     homeFooterModuleProps: { title: "HomeFooterModule" },

@@ -9,14 +9,14 @@ type Props = {
 
 export const HeaderAtom = (props: Props) => {
   return (
-    <div className="relative flex h-full w-full items-center justify-center bg-[#FFC96F]">
+    <div className="relative flex h-full w-full items-center justify-center bg-[#000000] text-white">
       {/* Sample using custom svg */}
       {props.onClickLeftIcon && (
         <div
           className="absolute left-0 z-[1] flex w-[50px] cursor-pointer items-center justify-center"
           onClick={props.onClickLeftIcon}
         >
-          <SVGAtom iconName="arrowLeft" width={20} height={20} color="black" />
+          <SVGAtom iconName="PopUpIcon" width={20} height={20} color="black" />
         </div>
       )}
 

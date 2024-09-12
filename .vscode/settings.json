@@ -4,5 +4,11 @@
   "prettier.requireConfig": true,
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "fabianlauer.vs-code-xml-format"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   }
 }

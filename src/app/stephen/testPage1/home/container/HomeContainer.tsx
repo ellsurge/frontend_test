@@ -13,7 +13,7 @@ export const HomeContainer = () => {
   const homeTemplateProps: React.ComponentProps<typeof HomeTemplate> = {
     homeHeaderModuleProps: {
       headerProps: {
-        title: "Sample Home",
+        title: "Proxima OS",
         onClickLeftIcon: headerLeftIconClicked,
         onClickRightIcon: headerRightIconClicked,
       },

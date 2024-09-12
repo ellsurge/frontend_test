@@ -4,6 +4,8 @@ import { HomeFooterModule } from "~/components/Modules/Home/HomeFooterModule";
 import { Layout } from "antd";
 import { Content, Footer, Header } from "antd/es/layout/layout";
 import { HomeDescriptionModule } from "~/components/Modules/HomeDescription/HomeDescriptionModule";
+import SVGAtom from "~/components/Atoms/SVGAtom/SVGAtom";
+import { useState } from "react";
 
 type Props = {
   homeHeaderModuleProps: React.ComponentProps<typeof HomeHeaderModule>;
@@ -18,12 +20,12 @@ export const HomeTemplate = (props: Props) => {
         <HomeHeaderModule {...props.homeHeaderModuleProps} />
       </Header>
 
-      <Content style={{ overflow: "auto", padding: "20px" }}>
-        <HomeContentModule {...props.homeContentModuleProps} />
+      <Content style={{ overflow: "auto", backgroundColor: '#262626', position: 'relative', }}>
+
         <HomeDescriptionModule />
       </Content>
 
-      <Footer style={{ padding: 0, minHeight: 50 }}>
+      <Footer style={{ padding: 0, minHeight: 50, }}>
         <HomeFooterModule {...props.homeFooterModuleProps} />
       </Footer>
     </Layout>
