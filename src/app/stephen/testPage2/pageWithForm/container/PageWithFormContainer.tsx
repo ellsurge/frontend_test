@@ -10,8 +10,8 @@ export const PageWithFormContainer = () => {
     typeof PageWithFormTemplate
   > = {
     pageWithFormHeaderModuleProps: {
-      title: "PageWithFormHeaderModule",
-      onClickLeftIcon: () => router.back(),
+      title: "Vote",
+      customBg: "bg-white text-black font-[450] text-[20px]"
     },
     pageWithFormFormModuleProps: {
       setFormData,

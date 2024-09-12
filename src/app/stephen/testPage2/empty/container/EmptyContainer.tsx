@@ -9,6 +9,7 @@ export const EmptyContainer = () => {
     emptyHeaderModuleProps: {
       headerProps: {
         title: "Empty",
+        customBg: "",
         onClickLeftIcon: () => {
           console.log("Left icon clicked");
           router.back();
@@ -17,9 +18,9 @@ export const EmptyContainer = () => {
       },
     },
     emptyContentModuleProps: {
-      moduleProps: "Empty Content Module",
-      componentProps: { title: "EmptyContentComponent" },
-      atomProps: { title: "EmptyContentAtom" },
+      moduleProps: "",
+      componentProps: { title: "" },
+      atomProps: { title: "" },
     },
     emptyFooterModuleProps: {
       footerProps: { title: "EmptyFooterModule" },
