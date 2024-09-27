@@ -28,6 +28,7 @@ export const PageWithModalTemplate = (props: Props) => {
           display: "flex",
           flex: 1,
           flexDirection: "column",
+          height: "100vh",
         }}
       >
         <PageWithModalDescriptionModule />

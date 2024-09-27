@@ -39,8 +39,7 @@
     "**/*.cjs",
     "**/*.js",
     ".next/types/**/*.ts",
-    "autogen.ts",
-    "src/images.d.ts"
+    "autogen.ts"
   ],
   "exclude": ["node_modules", "public"]
 }

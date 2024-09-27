@@ -4,11 +4,11 @@ import { PageWithModalTemplate } from "~/components/Templates/PageWithModal/Page
 import ModalStore from "~/store/ModalStore";
 
 export const DashboardContainer = () => {
-    const router = useRouter();
+  const router = useRouter();
 
-    const [isCustomModalOpen, setIsCustomModalOpen] = useState(false);
+  const [isCustomModalOpen, setIsCustomModalOpen] = useState(false);
 
-    const pagewithmodalTemplateProps: React.ComponentProps<
+  const pagewithmodalTemplateProps: React.ComponentProps<
     typeof PageWithModalTemplate
   > = {
     pageWithModalHeaderModuleProps: {
@@ -17,26 +17,17 @@ export const DashboardContainer = () => {
       onClickRightIcon: () => setIsCustomModalOpen(true),
     },
     pageWithModalContentModuleProps: {
-      onOpenSnapshotModal: () =>
-        ModalStore.open("TitleAndContent", {
-          TitleAndContent: {
-            title: "Modal Title",
-            description: "Modal Content",
-          },
-        }),
       modalProps: {
         modalProps: {
           isModalOpen: isCustomModalOpen,
           setModalOpen: setIsCustomModalOpen,
         },
-        title: "Custom Modal Title",
-        description: "Custom Modal Description",
       },
     },
     emptyFooterModuleProps: {
-      footerProps: { },
-    }
+      footerProps: {},
+    },
   };
 
   return <PageWithModalTemplate {...pagewithmodalTemplateProps} />;
-}; 
+};
