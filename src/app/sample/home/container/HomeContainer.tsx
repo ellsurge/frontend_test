@@ -36,7 +36,10 @@ const notifications = [
 
 const HomePage: React.FC = () => {
   return (
-    <div className='flex min-h-screen flex-col justify-between bg-gray-900 text-white'>
+    <div
+      style={{ backgroundColor: "" }}
+      className='flex min-h-screen flex-col justify-between bg-gray-900 text-white'
+    >
       {/* Header */}
       <Header />
 
