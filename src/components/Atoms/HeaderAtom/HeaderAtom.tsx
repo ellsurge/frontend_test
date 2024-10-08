@@ -1,36 +1,42 @@
-import { SettingOutlined } from "@ant-design/icons";
-import SVGAtom from "../SVGAtom/SVGAtom";
+// src/components/atoms/Header.tsx
+import { SettingOutlined, SelectOutlined } from "@ant-design/icons";
+import Link from "next/link";
+import { useState } from "react";
+import TransactionProcessing from "../TransactionProcessing";
 
-type Props = {
-  title: string;
-  onClickLeftIcon?: () => void;
-  onClickRightIcon?: () => void;
-};
+const Header: React.FC = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-export const HeaderAtom = (props: Props) => {
+  const handleSettingsClick = () => {
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
+
   return (
-    <div className="relative flex h-full w-full items-center justify-center bg-[#FFC96F]">
-      {/* Sample using custom svg */}
-      {props.onClickLeftIcon && (
-        <div
-          className="absolute left-0 z-[1] flex w-[50px] cursor-pointer items-center justify-center"
-          onClick={props.onClickLeftIcon}
-        >
-          <SVGAtom iconName="arrowLeft" width={20} height={20} color="black" />
-        </div>
-      )}
+    <div className='flex items-center justify-between bg-gray-800 p-4'>
+      <Link href='/sample/home'>
+        <img
+          src='/icon.png'
+          alt='icon'
+          style={{ fontSize: "24px", color: "gray" }}
+        />
+      </Link>
 
-      <div>{props.title}</div>
+      <div style={{ fontSize: "14px" }} className='font-white text-lg'>
+        Proxima OS
+      </div>
+      <SettingOutlined
+        onClick={handleSettingsClick}
+        style={{ fontSize: "24px", color: "gray", cursor: "pointer" }}
+      />
 
-      {/* Sample using Antd icon */}
-      {props.onClickRightIcon && (
-        <div
-          className="absolute right-0 z-[1] flex w-[50px] cursor-pointer items-center justify-center"
-          onClick={() => console.log("Antd icon clicked")}
-        >
-          <SettingOutlined className="!text-gray-header cursor-pointer text-[20px]" />
-        </div>
-      )}
+      {/* Render the popup when isPopupOpen is true */}
+      {isPopupOpen && <TransactionProcessing onClose={closePopup} />}
     </div>
   );
 };
+
+export default Header;
