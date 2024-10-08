@@ -1,34 +1,60 @@
-import { message } from "antd";
-import { HomeTemplate } from "~/components/Templates/Home/HomeTemplate";
+import Header from "~/components/Atoms/HeaderAtom/HeaderAtom";
+import ProximaSection from "~/components/Atoms/ProximaSection";
+import UserProfile from "~/components/Atoms/UserProfile";
+import Notifications from "~/components/Modules/Notifications/Notifications";
+import Footer from "~/components/Atoms/FooterAtom/FooterAtom";
+import badge from "../public/badge.png";
+import HomeTemplate from "~/components/Templates/Home/HomeTemplate/HomeTemplate";
+import { ThunderboltOutlined, BlockOutlined } from "@ant-design/icons";
 
-export const HomeContainer = () => {
-  const headerLeftIconClicked = () => {
-    void message.info("can't go back");
-  };
+const notifications = [
+  {
+    id: 1,
+    image: "/Ellipse1(1).png",
+    name: "ETH",
+    message: "User: Namulabs is fantastic company...",
+    time: "08:43 PM",
+    status: "unread",
+    icon: (
+      <img
+        src='/badge.png'
+        alt='notify'
+        style={{ fontSize: "24px", color: "#1890ff" }}
+      />
+    ),
+  },
+  {
+    id: 2,
+    image: "/Ellipse1.png",
+    name: "NVIR",
+    message: "User: Namulabs is fantastic company...",
+    time: "08:42 AM",
+    status: "read",
+  },
+];
 
-  const headerRightIconClicked = () => {
-    void message.info("can't go Settings");
-  };
+const HomePage: React.FC = () => {
+  return (
+    <div className='flex min-h-screen flex-col justify-between bg-gray-900 text-white'>
+      {/* Header */}
+      <Header />
 
-  const homeTemplateProps: React.ComponentProps<typeof HomeTemplate> = {
-    homeHeaderModuleProps: {
-      headerProps: {
-        title: "Sample Home",
-        onClickLeftIcon: headerLeftIconClicked,
-        onClickRightIcon: headerRightIconClicked,
-      },
-    },
-    homeContentModuleProps: {
-      sampleLinks: [
-        "/sample/empty",
-        "/sample/pageWithModal",
-        "/sample/pageWithDrawer",
-        "/sample/pageWithToast",
-        "/sample/pageWithForm",
-      ],
-    },
-    homeFooterModuleProps: { title: "HomeFooterModule" },
-  };
+      {/* Body */}
+      <div className='space-y-6 p-4'>
+        {/* User Profile */}
+        <UserProfile name='Messages' />
 
-  return <HomeTemplate {...homeTemplateProps} />;
+        {/* Proxima Section */}
+        <ProximaSection />
+
+        {/* Notifications */}
+        <Notifications notifications={notifications} />
+      </div>
+
+      {/* Footer */}
+      <Footer />
+    </div>
+  );
 };
+
+export default HomePage;
